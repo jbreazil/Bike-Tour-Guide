@@ -148,6 +148,6 @@ shopAddrButton.addEventListener('click', function(){
 });
 
 urlButton.addEventListener('click', function(){
-    Titanium.Platform.openURL('url:http://www.bikesandbeyond.com');
+    Titanium.Platform.openURL('http://www.bikesandbeyond.com');
     Ti.API.info('user clicked on shop website address...');
 });

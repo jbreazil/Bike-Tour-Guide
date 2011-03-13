@@ -147,6 +147,6 @@ shopAddrButton.addEventListener('click', function(){
 });
 
 urlButton.addEventListener('click', function(){
-    Titanium.Platform.openURL('url:http://www.bikes101.com/');
+    Titanium.Platform.openURL('http://www.bikes101.com/');
     Ti.API.info('user clicked on shop website address...');
 });

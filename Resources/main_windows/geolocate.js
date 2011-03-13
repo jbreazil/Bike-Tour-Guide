@@ -7,7 +7,7 @@ if (isIPhone3_2_Plus())
 {
 	//NOTE: starting in 3.2+, you'll need to set the applications
 	//purpose property for using Location services on iPhone
-	Ti.Geolocation.purpose = "GPS demo";
+	Ti.Geolocation.purpose = "Bicycle Touring Guide for the Oregon Coast";
 }
 
 var bkAddr = "150 NW 6th street Newport oregon 97365";
@@ -104,8 +104,8 @@ else
 	//
 	// IF WE HAVE COMPASS GET THE HEADING
 	//
-	if (Titanium.Geolocation.hasCompass)
-	{
+	//if (Titanium.Geolocation.hasCompass)
+	//{
 		//
 		//  TURN OFF ANNOYING COMPASS INTERFERENCE MESSAGE
 		//
@@ -119,7 +119,8 @@ else
 		//
 		//  GET CURRENT HEADING - THIS FIRES ONCE
 		//
-		Ti.Geolocation.getCurrentHeading(function(e)
+		//  Jeff ** not using compass, leave in for now for reference
+        /*Ti.Geolocation.getCurrentHeading(function(e)
 		{
 			if (e.error)
 			{
@@ -157,7 +158,7 @@ else
 			var trueHeading = e.heading.trueHeading;
 			var timestamp = e.heading.timestamp;
 
-			/* Jeff updatedHeading.text = 'x:' + x + ' y: ' + y + ' z:' + z;
+			Jeff updatedHeading.text = 'x:' + x + ' y: ' + y + ' z:' + z;
 			updatedHeadingTime.text = 'timestamp:' + new Date(timestamp);
 			updatedHeading.color = 'red';
 			updatedHeadingTime.color = 'red';
@@ -166,7 +167,7 @@ else
 				updatedHeading.color = '#444';
 				updatedHeadingTime.color = '#444';
 
-			},100);  */
+			},100);
 
 			Titanium.API.info('geo - heading updated: ' + new Date(timestamp) + ' x ' + x + ' y ' + y + ' z ' + z);
 		});
@@ -177,6 +178,7 @@ else
 		// jeff currentHeading.text = 'No compass available';
 		// jeff updatedHeading.text = 'No compass available';
 	}
+    */
 
 	//
 	//  SET ACCURACY - THE FOLLOWING VALUES ARE SUPPORTED
@@ -193,7 +195,7 @@ else
 	//  SET DISTANCE FILTER.  THIS DICTATES HOW OFTEN AN EVENT FIRES BASED ON THE DISTANCE THE DEVICE MOVES
 	//  THIS VALUE IS IN METERS
 	//
-	Titanium.Geolocation.distanceFilter = 10;
+	Titanium.Geolocation.distanceFilter = 4;
     
     //
 	// GET CURRENT POSITION - THIS FIRES ONCE
@@ -205,7 +207,81 @@ else
             alert('error ' + JSON.stringify(e.error));
             return;
         }
+        
+        var mapView = Ti.Map.createView(
+        { 
+            mapType: Ti.Map.STANDARD_TYPE, 
+            region:{latitude:e.coords.latitude,
+                    longitude: e.coords.longitude,
+                    latitudeDelta:0.5,
+                    longitudeDelta:1
+                    }, 
+                    animate:true, 
+                    regionFit:true, 
+                    userLocation:true, 
+                    annotations:[bikenewport,bikesandbeyond,mikesbikes,bikes101]
+        });
+        win.add(mapView);
+        
+        mapView.addEventListener('click',function(evt)
+        {
+            if (evt.annotation.myid == 1 && evt.clicksource == 'rightButton')  // myid 1 == Bike Newport
+            {
+                /*var w = Titanium.UI.createWindow({
+                    url:'bikenewport.html'
+                });
+                w.open({animated:true}); */
+                shopWin = Titanium.UI.createWindow({
+                    url:'../shops/bikenewport.js',
+                    title:'Shop Info'
+                });
+                shopWin.tabBarHidden = 'true';
+                Titanium.UI.currentTab.open(shopWin,{animated:true});
+            }
+            else if (evt.annotation.myid == 2 && evt.clicksource == 'rightButton')  // myid 2 == Bikes and beyond
+            {
+                /*var w = Titanium.UI.createWindow({
+                    url:'bikenewport.html'
+                });
+                w.open({animated:true}); */
+                shopWin = Titanium.UI.createWindow({
+                    url:'../shops/bikesandbeyond.js',
+                    title:'Shop Info'
+                });
+                shopWin.tabBarHidden = 'true';
+                Titanium.UI.currentTab.open(shopWin,{animated:true});
+            }
+            else if (evt.annotation.myid == 3 && evt.clicksource == 'rightButton')  // myid 3 == mikes bikes
+            {
+                /*var w = Titanium.UI.createWindow({
+                    url:'bikenewport.html'
+                });
+                w.open({animated:true}); */
+                shopWin = Titanium.UI.createWindow({
+                    url:'../shops/mikesbikes.js',
+                    title:'Shop Info'
+                });
+                shopWin.tabBarHidden = 'true';
+                Titanium.UI.currentTab.open(shopWin,{animated:true});
+            }
+            else if (evt.annotation.myid == 4 && evt.clicksource == 'rightButton')  // myid 4 == Bike 101
+            {
+                /*var w = Titanium.UI.createWindow({
+                    url:'bikenewport.html'
+                });
+                w.open({animated:true}); */
+                shopWin = Titanium.UI.createWindow({
+                    url:'../shops/bikes101.js',
+                    title:'Shop Info'
+                });
+                shopWin.tabBarHidden = 'true';
+                Titanium.UI.currentTab.open(shopWin,{animated:true});
+            }
+            
+            Ti.API.info('you clicked on -'+evt.annotation.myid+'- with click source = '+evt.clicksource);
+        });
 
+        /* ** Don't need this Jeff
         var longi = e.coords.longitude;
         var lati = e.coords.latitude;
         var altitude = e.coords.altitude;
@@ -216,6 +292,7 @@ else
         var altitudeAccuracy = e.coords.altitudeAccuracy;
         Ti.API.info('speed ' + speed);
         Ti.API.info('Get Current Position:'+e.coords.longitude+'  Lati:'+e.coords.latitude);
+        */
     });
     
 	//
@@ -232,8 +309,8 @@ else
 			return;
 		}
 
-		var longitude = e.coords.longitude;
-		var latitude = e.coords.latitude;
+		var myLongitude = e.coords.longitude;
+		var myLatitude = e.coords.latitude;
 		var altitude = e.coords.altitude;
 		var heading = e.coords.heading;
 		var accuracy = e.coords.accuracy;
@@ -286,80 +363,6 @@ else
 		Titanium.API.info('geo - location updated: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);*/
 	});
 }
-
-var mapView = Ti.Map.createView(
-    { 
-        mapType: Ti.Map.STANDARD_TYPE, 
-        region:{latitude:44.640290,
-                longitude: -124.053748,
-                latitudeDelta:0.5,
-                longitudeDelta:1
-        }, 
-        animate:true, 
-        regionFit:true, 
-        userLocation:true, 
-        annotations:[bikenewport,bikesandbeyond,mikesbikes,bikes101]
-    });
-win.add(mapView);
-
-mapView.addEventListener('click',function(evt)
-{
-    if (evt.annotation.myid == 1 && evt.clicksource == 'rightButton')  // myid 1 == Bike Newport
-    {
-        /*var w = Titanium.UI.createWindow({
-            url:'bikenewport.html'
-        });
-        w.open({animated:true}); */
-        shopWin = Titanium.UI.createWindow({
-            url:'../shops/bikenewport.js',
-            title:'Shop Info'
-        });
-        shopWin.tabBarHidden = 'true';
-        Titanium.UI.currentTab.open(shopWin,{animated:true});
-    }
-    else if (evt.annotation.myid == 2 && evt.clicksource == 'rightButton')  // myid 2 == Bikes and beyond
-    {
-        /*var w = Titanium.UI.createWindow({
-            url:'bikenewport.html'
-        });
-        w.open({animated:true}); */
-        shopWin = Titanium.UI.createWindow({
-            url:'../shops/bikesandbeyond.js',
-            title:'Shop Info'
-        });
-        shopWin.tabBarHidden = 'true';
-        Titanium.UI.currentTab.open(shopWin,{animated:true});
-    }
-    else if (evt.annotation.myid == 3 && evt.clicksource == 'rightButton')  // myid 3 == mikes bikes
-    {
-        /*var w = Titanium.UI.createWindow({
-            url:'bikenewport.html'
-        });
-        w.open({animated:true}); */
-        shopWin = Titanium.UI.createWindow({
-            url:'../shops/mikesbikes.js',
-            title:'Shop Info'
-        });
-        shopWin.tabBarHidden = 'true';
-        Titanium.UI.currentTab.open(shopWin,{animated:true});
-    }
-    else if (evt.annotation.myid == 4 && evt.clicksource == 'rightButton')  // myid 4 == Bike 101
-    {
-        /*var w = Titanium.UI.createWindow({
-            url:'bikenewport.html'
-        });
-        w.open({animated:true}); */
-        shopWin = Titanium.UI.createWindow({
-            url:'../shops/bikes101.js',
-            title:'Shop Info'
-        });
-        shopWin.tabBarHidden = 'true';
-        Titanium.UI.currentTab.open(shopWin,{animated:true});
-    }
-    
-    Ti.API.info('you clicked on -'+evt.annotation.myid+'- with click source = '+evt.clicksource);
-});
-
 
 //Ti.API.info('Get Current Position **2** :'+longi+'  Lati:'+lati);
 

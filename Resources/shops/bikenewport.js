@@ -147,6 +147,7 @@ shopAddrButton.addEventListener('click', function(){
 });
 
 urlButton.addEventListener('click', function(){
-    Titanium.Platform.openURL('url:http://wwww.bikenewport.net');
+    Titanium.Platform.openURL('http://www.bikenewport.net/');
+
     Ti.API.info('user clicked on shop website address...');
 });
