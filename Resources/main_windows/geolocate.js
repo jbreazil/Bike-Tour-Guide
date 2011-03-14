@@ -14,9 +14,9 @@ if (isIPhone3_2_Plus())
 // TOOLBAR
 //
 var tb2 = Titanium.UI.createTabbedBar({
-	labels:['One', 'Two', 'Three', 'Four', 'Five'],
-	backgroundColor:'maroon',
-	index:2
+	labels:['Map', 'Shops'],
+	backgroundColor:'red',
+	index:0
 });
 var flexSpace = Titanium.UI.createButton({
 	systemButton:Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
@@ -24,6 +24,31 @@ var flexSpace = Titanium.UI.createButton({
 
 win.setToolbar([flexSpace,tb2,flexSpace]);
 
+tb2.addEventListener('click', function(e)
+{
+    if(e.index == 1)
+    {
+        shopWin = Titanium.UI.createWindow({
+            url:'shoplist.js',
+            navBarHidden:false
+        });
+    }
+    else if(e.index == 0)
+    {
+        shopWin = Titanium.UI.createWindow({
+            url:'geolocate.js',
+            navBarHidden:true
+        });
+    }
+    
+    Titanium.UI.currentTab.open(shopWin,{animated:true});
+    
+    Ti.API.info('You clicked Index: '+e.index);
+});
+
+//
+//  Create annotations -- rewrite this to grab from list or DB when time allows
+//
 var bkAddr = "150 NW 6th street Newport oregon 97365";
 
 var bikenewport = Ti.Map.createAnnotation(
