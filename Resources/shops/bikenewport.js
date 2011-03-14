@@ -7,6 +7,7 @@ var shopName = Ti.UI.createLabel({
     font:{fontSize:38, fontStyle:'bold'},
     left:70
 });
+
 win.add(shopName);
 
 /*
