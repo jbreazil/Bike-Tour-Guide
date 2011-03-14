@@ -223,6 +223,15 @@ else
         });
         win.add(mapView);
         
+        var search = Titanium.UI.createSearchBar({
+            barColor:'#000',
+            showCancel:true,
+            height:43,
+            top:0
+        });
+
+        win.add(search);
+        
         mapView.addEventListener('click',function(evt)
         {
             if (evt.annotation.myid == 1 && evt.clicksource == 'rightButton')  // myid 1 == Bike Newport

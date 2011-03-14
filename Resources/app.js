@@ -22,7 +22,8 @@ var tab1 = Titanium.UI.createTab({
 //
 var win2 = Titanium.UI.createWindow({
     url:'main_windows/geolocate.js',
-    titleid:'Shops near me'
+    //titleid:'Shops near me'
+    navBarHidden: true
 });
 var tab2 = Titanium.UI.createTab({
     icon:'bn_radar.png',
