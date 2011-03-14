@@ -15,7 +15,6 @@ if (isIPhone3_2_Plus())
 //
 var tb2 = Titanium.UI.createTabbedBar({
 	labels:['Map', 'Shops'],
-	backgroundColor:'red',
 	index:0
 });
 var flexSpace = Titanium.UI.createButton({
@@ -49,12 +48,12 @@ tb2.addEventListener('click', function(e)
 //
 //  Create annotations -- rewrite this to grab from list or DB when time allows
 //
-var bkAddr = "150 NW 6th street Newport oregon 97365";
+// var bkAddr = "150 NW 6th street Newport oregon 97365";
 
 var bikenewport = Ti.Map.createAnnotation(
     {
-        latitude:0, 
-        longitude:0, 
+        latitude:44.640290, 
+        longitude:-124.053748, 
         title:'Bike Newport',
         subtitle:'Newport, Or', 
         pincolor:Ti.Map.ANNOTATION_GREEN, 
@@ -106,13 +105,13 @@ var bikes101 = Ti.Map.createAnnotation(
         myid:'bikes101'
     });
     
-Ti.Geolocation.forwardGeocoder(bkAddr,function(evt) 
-{
-    Ti.API.info('Bike Newport Lat:'+evt.latitude+'  Longi:'+evt.longitude);
-    
-    bikenewport.latitude = evt.latitude;
-    bikenewport.longitude = evt.longitude;
-});
+//Ti.Geolocation.forwardGeocoder(bkAddr,function(evt) 
+//{
+//    Ti.API.info('Bike Newport Lat:'+evt.latitude+'  Longi:'+evt.longitude);
+//    
+//    bikenewport.latitude = evt.latitude;
+//    bikenewport.longitude = evt.longitude;
+//});
     
 //
 //  SHOW CUSTOM ALERT IF DEVICE HAS GEO TURNED OFF

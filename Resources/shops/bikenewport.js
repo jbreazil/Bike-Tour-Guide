@@ -63,7 +63,7 @@ var urlButton = Ti.UI.createButton({
 win.add(urlButton);
 
 var shopLogo =  Titanium.UI.createImageView({
-    image:'../images/bn-anno.png',
+    image:'../appicon.png',
     height:57,
     width:57,
     left:8,
