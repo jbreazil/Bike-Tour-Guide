@@ -56,7 +56,7 @@ var bikenewport = Ti.Map.createAnnotation(
         longitude:-124.053748, 
         title:'Bike Newport',
         subtitle:'Newport, Or', 
-        pincolor:Ti.Map.ANNOTATION_GREEN, 
+        pincolor:Ti.Map.ANNOTATION_RED, 
         animate:true, 
         leftButton: '../images/bn-anno.png',
         rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
@@ -70,7 +70,7 @@ var bikesandbeyond = Ti.Map.createAnnotation(
         title:'Bikes and Beyond',
         subtitle:'Astoria, Or',
         titleid:'1', 
-        pincolor:Ti.Map.ANNOTATION_GREEN, 
+        pincolor:Ti.Map.ANNOTATION_PURPLE, 
         animate:true, 
         leftButton: '../images/bn-anno.png',
         rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
@@ -84,7 +84,7 @@ var mikesbikes = Ti.Map.createAnnotation(
         title:'Mikes Bikes',
         subtitle:'Cannon Beach, Or',
         titleid:'2', 
-        pincolor:Ti.Map.ANNOTATION_GREEN, 
+        pincolor:Ti.Map.ANNOTATION_PURPLE, 
         animate:true, 
         leftButton: '../images/bn-anno.png',
         rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
@@ -98,13 +98,114 @@ var bikes101 = Ti.Map.createAnnotation(
         title:'Bikes 101',
         titleid:'3',
         subtitle:'Florence, Or', 
-        pincolor:Ti.Map.ANNOTATION_GREEN,
+        pincolor:Ti.Map.ANNOTATION_PURPLE,
         animate:true,
         leftButton: '../images/bn-anno.png',
         rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
         myid:'bikes101'
     });
     
+var prombikes = Ti.Map.createAnnotation(
+    {
+        latitude:46.001601, 
+        longitude:-123.920748, 
+        title:'Prom Bikes',
+        titleid:'3',
+        subtitle:'Seaside, Or', 
+        pincolor:Ti.Map.ANNOTATION_PURPLE,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'prombikes'
+    });
+    
+var traskcycle = Ti.Map.createAnnotation(
+    {
+        latitude:45.457837, 
+        longitude:-123.844558, 
+        title:'Trask Mountain Cycle',
+        titleid:'3',
+        subtitle:'Tillamook, Or', 
+        pincolor:Ti.Map.ANNOTATION_PURPLE,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'traskcycle'
+    });
+    
+var moesbikes = Ti.Map.createAnnotation(
+    {
+        latitude:43.415166, 
+        longitude:-124.224, 
+        title:'Moes Bike Shop',
+        titleid:'3',
+        subtitle:'Coos Bay, Or', 
+        pincolor:Ti.Map.ANNOTATION_PURPLE,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'moesbikes'
+    });
+    
+var escapecycles = Ti.Map.createAnnotation(
+    {
+        latitude:42.050675, 
+        longitude:-124.281479, 
+        title:'Escape Hatch Cycle',
+        titleid:'3',
+        subtitle:'Brookings, Or', 
+        pincolor:Ti.Map.ANNOTATION_PURPLE,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'escapecycles'
+    });
+    
+    
+// Brew Pubs
+var bierone = Ti.Map.createAnnotation(
+    {
+        latitude:44.633077, 
+        longitude:-124.057274, 
+        title:'Bier One',
+        titleid:'3',
+        subtitle:'Newport, Or', 
+        pincolor:Ti.Map.ANNOTATION_GREEN,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'bierone'
+    });
+    
+// Hiker Biker Camp Grounds
+var fortstevens = Ti.Map.createAnnotation(
+    {
+        latitude:46.18256407037658, 
+        longitude:-123.97281646728516,
+        title:'Fort Stevens Camp Ground',
+        titleid:'3',
+        subtitle:'Hammond, Or', 
+        pincolor:Ti.Map.ANNOTATION_GREEN,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'fortstevens'
+    });
+
+var nehalembay = Ti.Map.createAnnotation(
+    {
+        latitude:45.673563, 
+        longitude:-123.936424,
+        title:'Nehalem Bay Camp Ground',
+        titleid:'3',
+        subtitle:'Rockaway, Or', 
+        pincolor:Ti.Map.ANNOTATION_GREEN,
+        animate:true,
+        leftButton: '../images/bn-anno.png',
+        rightButton:Titanium.UI.iPhone.SystemButton.DISCLOSURE,
+        myid:'nehalembay'
+    });
+  
 //Ti.Geolocation.forwardGeocoder(bkAddr,function(evt) 
 //{
 //    Ti.API.info('Bike Newport Lat:'+evt.latitude+'  Longi:'+evt.longitude);
@@ -172,13 +273,14 @@ else
             mapType: Ti.Map.STANDARD_TYPE, 
             region:{latitude:e.coords.latitude,
                     longitude: e.coords.longitude,
-                    latitudeDelta:0.5,
-                    longitudeDelta:1
+                    latitudeDelta:0.3,
+                    longitudeDelta:0.3
                     }, 
                     animate:true, 
                     regionFit:true, 
                     userLocation:true, 
-                    annotations:[bikenewport,bikesandbeyond,mikesbikes,bikes101]
+                    annotations:[bikenewport,bikesandbeyond,mikesbikes,bikes101,bierone,prombikes,traskcycle,moesbikes,
+                    escapecycles,fortstevens,nehalembay]
         });
         win.add(mapView);
         
