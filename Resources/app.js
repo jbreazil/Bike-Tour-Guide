@@ -21,15 +21,9 @@ var tab1 = Titanium.UI.createTab({
 // create phone tab and root window
 //
 var win2 = Titanium.UI.createWindow({
-<<<<<<< HEAD
-    url:'main_windows/geolocate.js',
-    //titleid:'Shops near me'
-    navBarHidden: true
-=======
     url:'main_windows/shoplist.js',
     title:'Bike Shops',
     navBarHidden:true
->>>>>>> BetaDev
 });
 var tab2 = Titanium.UI.createTab({
     icon:'bn_nav_ui.png',

@@ -287,7 +287,6 @@ else
         });
         win.add(mapView);
         
-<<<<<<< HEAD
         var search = Titanium.UI.createSearchBar({
             barColor:'#000',
             showCancel:true,
@@ -296,14 +295,12 @@ else
         });
 
         win.add(search);
-        
-=======
+
         Ti.include('../utils/search.js');
         
         //
         //  Add event listener for clicking right button on annotations
         //
->>>>>>> BetaDev
         mapView.addEventListener('click',function(evt)
         {
             if (evt.clicksource == 'rightButton')
