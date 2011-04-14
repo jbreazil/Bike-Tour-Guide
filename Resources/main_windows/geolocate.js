@@ -13,7 +13,7 @@ if (isIPhone3_2_Plus())
 //
 // TOOLBAR
 //
-var tb2 = Titanium.UI.createTabbedBar({
+/*var tb2 = Titanium.UI.createTabbedBar({
 	labels:['Map', 'Shops'],
 	index:0
 });
@@ -44,6 +44,8 @@ tb2.addEventListener('click', function(e)
     
     Ti.API.info('You clicked Index: '+e.index);
 });
+*/
+
 
 //
 //  Create annotations -- rewrite this to grab from list or DB when time allows
@@ -55,6 +57,7 @@ var bikenewport = Ti.Map.createAnnotation(
         latitude:44.640290, 
         longitude:-124.053748, 
         title:'Bike Newport',
+        titleid:'Shop Info',
         subtitle:'Newport, Or', 
         pincolor:Ti.Map.ANNOTATION_RED, 
         animate:true, 
@@ -69,7 +72,7 @@ var bikesandbeyond = Ti.Map.createAnnotation(
         longitude:-123.8319591, 
         title:'Bikes and Beyond',
         subtitle:'Astoria, Or',
-        titleid:'1', 
+        titleid:'Shop Info', 
         pincolor:Ti.Map.ANNOTATION_PURPLE, 
         animate:true, 
         leftButton: '../images/bn-anno.png',
@@ -83,7 +86,7 @@ var mikesbikes = Ti.Map.createAnnotation(
         longitude:-123.9599592, 
         title:'Mikes Bikes',
         subtitle:'Cannon Beach, Or',
-        titleid:'2', 
+        titleid:'Shop Info', 
         pincolor:Ti.Map.ANNOTATION_PURPLE, 
         animate:true, 
         leftButton: '../images/bn-anno.png',
@@ -96,7 +99,7 @@ var bikes101 = Ti.Map.createAnnotation(
         latitude:43.974005, 
         longitude:-124.104527, 
         title:'Bikes 101',
-        titleid:'3',
+        titleid:'Shop Info',
         subtitle:'Florence, Or', 
         pincolor:Ti.Map.ANNOTATION_PURPLE,
         animate:true,
@@ -110,7 +113,7 @@ var prombikes = Ti.Map.createAnnotation(
         latitude:46.001601, 
         longitude:-123.920748, 
         title:'Prom Bikes',
-        titleid:'3',
+        titleid:'Shop Info',
         subtitle:'Seaside, Or', 
         pincolor:Ti.Map.ANNOTATION_PURPLE,
         animate:true,
@@ -124,7 +127,7 @@ var traskcycle = Ti.Map.createAnnotation(
         latitude:45.457837, 
         longitude:-123.844558, 
         title:'Trask Mountain Cycle',
-        titleid:'3',
+        titleid:'Shop Info',
         subtitle:'Tillamook, Or', 
         pincolor:Ti.Map.ANNOTATION_PURPLE,
         animate:true,
@@ -138,7 +141,7 @@ var moesbikes = Ti.Map.createAnnotation(
         latitude:43.415166, 
         longitude:-124.224, 
         title:'Moes Bike Shop',
-        titleid:'3',
+        titleid:'Shop Info',
         subtitle:'Coos Bay, Or', 
         pincolor:Ti.Map.ANNOTATION_PURPLE,
         animate:true,
@@ -152,7 +155,7 @@ var escapecycles = Ti.Map.createAnnotation(
         latitude:42.050675, 
         longitude:-124.281479, 
         title:'Escape Hatch Cycle',
-        titleid:'3',
+        titleid:'Shop Info',
         subtitle:'Brookings, Or', 
         pincolor:Ti.Map.ANNOTATION_PURPLE,
         animate:true,
@@ -168,7 +171,7 @@ var bierone = Ti.Map.createAnnotation(
         latitude:44.633077, 
         longitude:-124.057274, 
         title:'Bier One',
-        titleid:'3',
+        titleid:'Brew Pub',
         subtitle:'Newport, Or', 
         pincolor:Ti.Map.ANNOTATION_GREEN,
         animate:true,
@@ -182,8 +185,8 @@ var fortstevens = Ti.Map.createAnnotation(
     {
         latitude:46.18256407037658, 
         longitude:-123.97281646728516,
-        title:'Fort Stevens Camp Ground',
-        titleid:'3',
+        title:'Fort Stevens State Park',
+        titleid:'Park Info',
         subtitle:'Hammond, Or', 
         pincolor:Ti.Map.ANNOTATION_GREEN,
         animate:true,
@@ -196,8 +199,8 @@ var nehalembay = Ti.Map.createAnnotation(
     {
         latitude:45.673563, 
         longitude:-123.936424,
-        title:'Nehalem Bay Camp Ground',
-        titleid:'3',
+        title:'Nehalem Bay State Park',
+        titleid:'Park Info',
         subtitle:'Rockaway, Or', 
         pincolor:Ti.Map.ANNOTATION_GREEN,
         animate:true,
@@ -295,7 +298,7 @@ else
             {
                 shopWin = Titanium.UI.createWindow({
                     url:'../shops/'+evt.annotation.myid+'.js',
-                    title:'Shop Info',
+                    title:evt.annotation.titleid,
                     navBarHidden:false
                 });
                 

@@ -29,9 +29,10 @@ tableview.addEventListener('click', function(e)
 	{
 		var win = Titanium.UI.createWindow({
 			url:e.rowData.test,
-			title:e.rowData.title
+			title:'Shop Info',
+            navBarHidden:false
 		});
-        win.tabBarHidden = 'true';
+        //win.tabBarHidden = 'true';
 		Titanium.UI.currentTab.open(win,{animated:true});
 	}
 });
