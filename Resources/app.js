@@ -5,29 +5,35 @@ Titanium.UI.setBackgroundColor('#000');
 var tabGroup = Titanium.UI.createTabGroup({id:'tabGroup1'});
 
 //
-// create phone tab and root window
+// create geolocation tab and root window
 //
 var win1 = Titanium.UI.createWindow({
-    url:'main_windows/shoplist.js',
-    title:'Oregon Coast Bike Shops'
+    url:'main_windows/geolocate.js',
+    navBarHidden: true
 });
 var tab1 = Titanium.UI.createTab({
-    icon:'bn_nav_ui.png',
-    title:'Bike Shops',
+    icon:'bn_radar.png',
+    title:'Shop Map',
     window:win1
 });
 
 //
-// create geolocation tab and root window
+// create phone tab and root window
 //
 var win2 = Titanium.UI.createWindow({
+<<<<<<< HEAD
     url:'main_windows/geolocate.js',
     //titleid:'Shops near me'
     navBarHidden: true
+=======
+    url:'main_windows/shoplist.js',
+    title:'Bike Shops',
+    navBarHidden:true
+>>>>>>> BetaDev
 });
 var tab2 = Titanium.UI.createTab({
-    icon:'bn_radar.png',
-    title:'Shop Map',
+    icon:'bn_nav_ui.png',
+    title:'Bike Shops',
     window:win2
 });
 
@@ -46,8 +52,12 @@ tabGroup.addEventListener('open',function()
 	Titanium.UI.setBackgroundColor('#fff');
 });
 
-tabGroup.setActiveTab(1); 
+tabGroup.setActiveTab(0);
+ 
 // open tab group with a transition animation
-tabGroup.open({
-	transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT
-});
+setTimeout(function()
+{
+    tabGroup.open({
+        transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT
+    });
+},3000);

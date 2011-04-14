@@ -1,10 +1,10 @@
 var win = Ti.UI.currentWindow;
-win.backgroundColor = 'blue';
+win.backgroundColor = 'brown';
 
 var shopName = Ti.UI.createLabel({
     top:-345,
-    text:'Bikes & Beyond',
-    font:{fontSize:32, fontStyle:'bold'},
+    text:'Bier One',
+    font:{fontSize:38, fontStyle:'bold'},
     left:70
 });
 win.add(shopName);
@@ -82,7 +82,7 @@ titlePhoneLabel = Ti.UI.createLabel({
 win.add(titlePhoneLabel);
 
 PhoneLabel = Ti.UI.createLabel({
-  text:'503-325-2961',
+  text:'541-265-4630',
   color:'black',
   top:-230,
   left:94
@@ -99,9 +99,8 @@ titleUrlLabel = Ti.UI.createLabel({
 win.add(titleUrlLabel);
 
 urlLabel = Ti.UI.createLabel({
-  text:'www.bikesandbeyond.com',
+  text:'http://www.bier-one.com/',
   color:'black',
-  fontsize:12,
   top:-150,
   left:94
 });
@@ -118,7 +117,7 @@ titleAddrLabel = Ti.UI.createLabel({
 win.add(titleAddrLabel);
 
 addrLabel = Ti.UI.createLabel({
-  text:'1089 Marine Drive\nAstoria OR 97103',
+  text:'424 SW Coast Hwy\nNewport OR 97365',
   color:'black',
   top:-45,
   left:94
@@ -126,7 +125,7 @@ addrLabel = Ti.UI.createLabel({
 win.add(addrLabel);
 
 detailsLabel = Ti.UI.createLabel({
-  text:'Offering touring bicyclists:\n- Full service shop\n- Clothing, parts and accessories',
+  text:'Offering touring bicyclists:\n- Imported & Premium Beers\n- Home Brewing Supplies\n- Mix and match beers to go\n- Great tap and bottle selection',
   color:'black',
   top:165,
   left:20
@@ -138,7 +137,7 @@ win.add(detailsLabel);
 
 // first lets dial the phone number when clicked
 phoneButton.addEventListener('click', function(){
-     Titanium.Platform.openURL('tel:5033252961');
+     Titanium.Platform.openURL('tel:5412654630');
      Ti.API.info('calling phone number...');
 });
 
@@ -148,6 +147,6 @@ shopAddrButton.addEventListener('click', function(){
 });
 
 urlButton.addEventListener('click', function(){
-    Titanium.Platform.openURL('http://www.bikesandbeyond.com');
+    Titanium.Platform.openURL('http://www.beir-one.com/');
     Ti.API.info('user clicked on shop website address...');
 });

@@ -3,8 +3,8 @@ win.backgroundColor = 'blue';
 
 var shopName = Ti.UI.createLabel({
     top:-345,
-    text:'Bikes & Beyond',
-    font:{fontSize:32, fontStyle:'bold'},
+    text:'Trask Mnt Cycle',
+    font:{fontSize:38, fontStyle:'bold'},
     left:70
 });
 win.add(shopName);
@@ -82,7 +82,7 @@ titlePhoneLabel = Ti.UI.createLabel({
 win.add(titlePhoneLabel);
 
 PhoneLabel = Ti.UI.createLabel({
-  text:'503-325-2961',
+  text:'503-842-9220',
   color:'black',
   top:-230,
   left:94
@@ -99,9 +99,8 @@ titleUrlLabel = Ti.UI.createLabel({
 win.add(titleUrlLabel);
 
 urlLabel = Ti.UI.createLabel({
-  text:'www.bikesandbeyond.com',
+  text:'',
   color:'black',
-  fontsize:12,
   top:-150,
   left:94
 });
@@ -118,7 +117,7 @@ titleAddrLabel = Ti.UI.createLabel({
 win.add(titleAddrLabel);
 
 addrLabel = Ti.UI.createLabel({
-  text:'1089 Marine Drive\nAstoria OR 97103',
+  text:'1906 1st Street/nTillamook, Oregon',
   color:'black',
   top:-45,
   left:94
@@ -138,7 +137,7 @@ win.add(detailsLabel);
 
 // first lets dial the phone number when clicked
 phoneButton.addEventListener('click', function(){
-     Titanium.Platform.openURL('tel:5033252961');
+     Titanium.Platform.openURL('tel:5038429220');
      Ti.API.info('calling phone number...');
 });
 
@@ -148,6 +147,6 @@ shopAddrButton.addEventListener('click', function(){
 });
 
 urlButton.addEventListener('click', function(){
-    Titanium.Platform.openURL('http://www.bikesandbeyond.com');
-    Ti.API.info('user clicked on shop website address...');
+    //Titanium.Platform.openURL('http://www.prombikeshop.com/');
+    //Ti.API.info('user clicked on shop website address...');
 });
