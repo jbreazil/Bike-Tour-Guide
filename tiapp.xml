@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-<id>BikeNewport.OregonCycleGuide</id>
+<id>com.nwtechworks.BikeTour</id>
 <name>Oregon Coast Cycle Tour Guide</name>
-<version>1.0</version>
-<publisher>Jeff Breazile</publisher>
-<url>http://www.nwtechworks.com</url>
-<description>Bicycle Tourist Guide for the Oregon Coast</description>
-<copyright>Jeff Breazile 2010 - 2011</copyright>
+<version>0.1</version>
+<publisher>not specified</publisher>
+<url>not specified</url>
+<description>not specified</description>
+<copyright>not specified</copyright>
 <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>

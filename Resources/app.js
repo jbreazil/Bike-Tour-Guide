@@ -21,13 +21,13 @@ var tab1 = Titanium.UI.createTab({
 // create phone tab and root window
 //
 var win2 = Titanium.UI.createWindow({
-    url:'main_windows/shoplist.js',
-    title:'Bike Shops',
+    url:'main_windows/ElavProf.js',
+    title:'Elevation Profile',
     navBarHidden:true
 });
 var tab2 = Titanium.UI.createTab({
     icon:'bn_nav_ui.png',
-    title:'Bike Shops',
+    title:'Elevation Profile',
     window:win2
 });
 
@@ -54,4 +54,4 @@ setTimeout(function()
     tabGroup.open({
         transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT
     });
-},3000);
+},2400);
