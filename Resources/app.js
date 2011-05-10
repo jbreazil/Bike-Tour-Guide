@@ -54,4 +54,4 @@ setTimeout(function()
     tabGroup.open({
         transition:Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT
     });
-},2400);
+},1500);
