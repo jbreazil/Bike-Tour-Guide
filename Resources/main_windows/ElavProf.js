@@ -22,18 +22,23 @@ Titanium.UI.currentWindow.add(view);
 
 var win = Titanium.UI.currentWindow;
  
-var scrollView = Ti.UI.createScrollView({ contentWidth:'auto',
-contentHeight:'auto', top:0,
-showVerticalScrollIndicator:true,
-showHorizontalScrollIndicator:true });
+var scrollView = Ti.UI.createScrollView({
+    contentWidth:'auto',
+    contentHeight:'auto',
+    top:0,
+    showVerticalScrollIndicator:true,
+    showHorizontalScrollIndicator:true,
+    maxZoomScale:3.0,
+    minZoomScale:0.8
+});
  
 var imageView = Titanium.UI.createImageView({
 image:'../images/rtprofile.png', 
-width:564, 
-height:1308, 
+width:884, 
+height:1117, 
 top:10 
 });
- 
+
 scrollView.add(imageView);
  
 win.add(scrollView);
